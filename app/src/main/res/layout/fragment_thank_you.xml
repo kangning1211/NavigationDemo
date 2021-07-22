@@ -7,14 +7,24 @@
     tools:context=".ThankYouFragment">
 
     <TextView
-        android:id="@+id/TextView"
+        android:id="@+id/tvPercentage"
+        style="@style/myStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thank You !"
+        android:text="Percentage : "
         android:textColor="@color/black"
-        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.902" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:text="Thank You !"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/myStyle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

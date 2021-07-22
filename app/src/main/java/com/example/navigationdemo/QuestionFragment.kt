@@ -72,13 +72,15 @@ class QuestionFragment : Fragment() {
 
 
 
+
+
                 if (questionIndex < 1) {
                     questionIndex += 1
                     binding.radioGroup.clearCheck()
                     setQuestion()
 
                 } else {
-
+                    val percentage:Float = (score/question.size.toFloat()) * 100
                     Navigation.findNavController(it)
                         .navigate(R.id.action_questionFragment_to_thankYouFragment)
                 }
