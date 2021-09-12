@@ -48,13 +48,13 @@ class QuestionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_question, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_question, container, false)
 
         setQuestion()
 
-        binding.btnNext.setOnClickListener() {
+        binding.btnNext.setOnClickListener(){
             val checkedId = binding.radioGroup.checkedRadioButtonId
 
             if (checkedId != -1) {
@@ -70,27 +70,22 @@ class QuestionFragment : Fragment() {
                     score += 1
                 }
 
-
-
-
-
                 if (questionIndex < 1) {
                     questionIndex += 1
                     binding.radioGroup.clearCheck()
                     setQuestion()
 
                 } else {
-                    val percentage:Float = (score/question.size.toFloat()) * 100
-                    Navigation.findNavController(it)
-                        .navigate(R.id.action_questionFragment_to_thankYouFragment)
+                    Navigation.findNavController(it).navigate(R.id.action_questionFragment_to_thankYouFragment)
+
                 }
-            } else {
-                Toast.makeText(context, "please select answer", Toast.LENGTH_LONG).show()
+            }else{
+                //when there is no option choose
+                Toast.makeText(context, "Please select an answer", Toast.LENGTH_LONG).show()
             }
         }
 
         return binding.root
     }
-
 
 }
